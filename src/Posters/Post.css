@@ -1,0 +1,36 @@
+.overview{
+    opacity: 0.5;
+    background-color: #ddd;
+}
+
+.modal-show{
+    display: block;
+}
+
+.perfil{
+    gap: 1em;
+}
+
+.img__profile{
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+h5{
+    margin: 0;
+}
+
+span{
+    font-size: 0.8em;
+}
+
+@media (min-width: 1024px){
+    .container__post{
+        width: 30%;
+        margin: auto;
+    }
+}
+
+

@@ -1,0 +1,55 @@
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.4s;
+    z-index: 3
+}
+
+.nav-flex{
+    position: sticky;
+    top: 0;
+}
+
+.nav__container{
+    width: 80%;
+    background: #52BE80 ;
+    color: white;
+}
+
+.nav-show{
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.close{
+    float: left;
+}
+
+@media (min-width: 1024px){
+
+    .nav-flex{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+    }
+
+    .nav{
+        position: static;
+        opacity: 1;
+        pointer-events: unset;
+    }
+
+    .nav__container{
+        width: 100%;
+        background-color: transparent;
+    }
+
+    .close{
+        display: none;
+    }
+}

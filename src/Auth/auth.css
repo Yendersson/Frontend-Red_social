@@ -1,0 +1,16 @@
+
+.form-control{
+    width: auto;
+    margin: auto;
+}
+
+.form{
+    margin: auto;
+    width: auto;
+}
+
+.img__auth{
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+}

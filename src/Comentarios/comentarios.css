@@ -1,0 +1,20 @@
+.perfil__comentario{
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 50%;
+}
+
+.container__comentario{
+    gap: 0.2em;
+}
+
+.jumbotron{
+    padding: 0.2em;
+}
+
+.jumbotron h6{
+    margin: 0;
+    padding: 0;
+}
+
