@@ -4,11 +4,14 @@ import { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import DeleteProfile from './DeleteProfile';
+import { handleFileSelect } from '../utils/updateFiles.js';
 
 // PRODUCTION
 const urlBase = 'https://red-social-by-yender.glitch.me/profile';
+const upload = 'https://red-social-by-yender.glitch.me/upload/';
 // localhost
 // const urlBase ='http://localhost:8080/profile';
+// const upload = 'http://localhost:8080/upload/';
 
 function MyProfile() {
 
@@ -32,8 +35,14 @@ function MyProfile() {
         setDatos(values => ({ ...values, [nombre]: value }));
     }
 
+    const testFiles = (e) => {
+        const nombre = e.target.name;
+        const file = handleFileSelect(e.target.files[0]);
+        if (file) setDatos(values => ({ ...values, [nombre]: file }));
+    }
+
     const submitChanges = async () => {
-        const cambiosRealizado = await axios.put(`${urlBase}${id}`, datos, {
+        const cambiosRealizado = await axios.put(`${urlBase}/${id}`, datos, {
             headers: { 'Authorization': localStorage.getItem('user').split(',')[0] }
         })
         console.log(cambiosRealizado);
@@ -72,7 +81,9 @@ function MyProfile() {
                             <div className="jumbotron mt-3 p-3" >
 
                                 <div className="media">
-                                    <div className='img__Myprofile'></div>
+                                    <div className='img__Myprofile'>
+                                        {elementos.IMAGE && (<img src={`${upload}/${elementos.IMAGE}`} alt="" />)}
+                                    </div>
                                     <div className="media-body">
                                         <h5 className="mt-0">{elementos.USERNAME}</h5>
                                         <p>Hola me llamo Yenderson</p>
@@ -120,7 +131,9 @@ function MyProfile() {
                         <div className="jumbotron mt-3 p-3" >
 
                             <div className="media">
-                                <div className='img__Myprofile'></div>
+                                <div className='img__Myprofile'>
+                                    <input type="file" name="image" id="image" onChange={(e) => testFiles(e)} />
+                                </div>
                                 <div className="media-body">
                                     <h5 className="mt-0">{elementos.USERNAME}</h5>
                                     <p>Hola me llamo Yenderson</p>

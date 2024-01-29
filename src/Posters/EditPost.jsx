@@ -1,11 +1,12 @@
 import './Post.css'
 import axios from "axios";
 import { useState } from "react";
+import { handleFileSelect } from '../utils/updateFiles';
 
 // PRODUCTION
 const urlBase = 'https://red-social-by-yender.glitch.me/feed/'
 // localhost
-// const urlBase ='http://localhost:8080/feed/';
+//const urlBase = 'http://localhost:8080/feed/';
 
 function EditPost(props) {
 
@@ -16,6 +17,11 @@ function EditPost(props) {
         const value = e.target.value;
 
         setData(values => ({ ...values, [name]: value }));
+    }
+    const files = (e) => {
+        const nombre = e.target.name;
+        const file = handleFileSelect(e.target.files[0]);
+        if (file) setData(values => ({ ...values, [nombre]: file }));
     }
 
     const cancelModif = () => {
@@ -53,6 +59,9 @@ function EditPost(props) {
                             </button>
                         </div>
                         <div className="modal-body">
+                            <label htmlFor="image">
+                                <input type="file" id="image" name="image" onChange={e => files(e)} />
+                            </label>
                             <label htmlFor="exampleFormControlTextarea1">Modficar</label>
                             <textarea className="form-control" name="contenido" id="exampleFormControlTextarea1" rows="3" onChange={(e) => datoACargar(e)}></textarea>
                         </div>

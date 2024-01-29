@@ -5,8 +5,10 @@ import useAxios from 'axios-hooks';
 
 // PRODUCTION
 const urlBaseComments = 'https://red-social-by-yender.glitch.me/comments/';
+const upload = 'https://red-social-by-yender.glitch.me/upload/';
 // LOCALHOST
 // const urlBaseComments = 'http://localhost:8080/comments/';
+//const upload = 'http://localhost:8080/upload/';
 
 function Comentarios(props) {
 
@@ -56,7 +58,9 @@ function Comentarios(props) {
                 return (
                     <div className="" key={index}>
                         <div className='d-flex container__comentario'>
-                            <div className='perfil__comentario'></div>
+                            <div className='perfil__comentario'>
+                            {elemento.IMAGE && (<img src={`${upload}${elemento.IMAGE}`} alt="" />)}
+                            </div>
                             <div className='jumbotron mb-2'><h6>{elemento.USERNAME}</h6>
                             <span>{elemento.FECHA.split('T')[0]}</span>
                             <p>{elemento.CONTENIDO}</p>

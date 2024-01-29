@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { handleFileSelect } from "../utils/updateFiles";
 
 // PRODUCTION
 const urlBase = 'https://red-social-by-yender.glitch.me/feed/'
 
-// const urlBase = 'http://localhost:8080/feed/'; LOCALHOST
+ //const urlBase = 'http://localhost:8080/feed/'; //LOCALHOST
 
 function CreatePost() {
 
@@ -18,6 +19,12 @@ function CreatePost() {
         const name = e.target.name;
         const value = e.target.value;
         setData(values => ({...values, [name]: value}));
+    }
+
+    const files = (e) => {
+        const nombre = e.target.name;
+        const file = handleFileSelect(e.target.files[0]);
+        if (file) setData(values => ({ ...values, [nombre]: file }));
     }
 
 console.log(data)
@@ -37,6 +44,9 @@ console.log(data)
         <div>
 
             <div className="form-group">
+                <label htmlFor="image">
+                    <input type="file" id="image" name="image" onChange={e => files(e)} />
+                </label>
                 <label htmlFor="exampleFormControlTextarea1">Que piensas?</label>
                     <textarea className="form-control" name="contenido" id="exampleFormControlTextarea1" rows="3" onChange={(e)=> datos(e)}></textarea>
 

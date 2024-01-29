@@ -16,6 +16,22 @@
     height: 40px;
     background-color: #ddd;
     border-radius: 50%;
+    overflow: hidden;
+}
+
+.img__post{
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+}
+
+.img__post img{
+    width: 100%;
+}
+
+
+.img__profile img{
+    width: 100%;
 }
 
 h5{

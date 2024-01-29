@@ -8,8 +8,10 @@ import EditPost from './EditPost';
 
 // PRODUCTION
 const urlBase = 'https://red-social-by-yender.glitch.me/feed/'
+const upload = 'https://red-social-by-yender.glitch.me/upload/';
 // localhost
-// const urlBase ='http://localhost:8080/feed/';
+ //const urlBase ='http://localhost:8080/feed/';
+ //const upload = 'http://localhost:8080/upload/';
 
 function Post() {
 
@@ -77,7 +79,7 @@ function Post() {
                         <div className="p-2 mt-2 border" key={index} >
                             <div className='d-flex perfil align-items-center'>
                                 <div className='img__profile'>
-
+                                    {data.IMAGE && (<img src={`${upload}${data.IMAGE}`} alt="" />)}
                                 </div>
                                 <div>
                                     <h5>{data.USERNAME}</h5>
@@ -88,6 +90,9 @@ function Post() {
                             <hr />
                             <div className="card-body">
                                 <p className="card-text">{data.CONTENIDO}</p>
+                                <div className='img__post'>
+                                    {data.IMAGE_POST && (<img src={`${upload}${data.IMAGE_POST}`} alt="" />)}
+                                </div>
 
                                 {data.ID_USER.toString() === localStorage.getItem('user').split(',')[1] &&
                                     <>

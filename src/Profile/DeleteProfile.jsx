@@ -3,7 +3,7 @@ import axios from "axios";
 // PRODUCTION
 const urlBase = 'https://red-social-by-yender.glitch.me/profile/';
 // LOCALHOST
-// const urlBase ='http://localhost:8080/profile';
+ //const urlBase ='http://localhost:8080/profile';
 
 
 function DeleteProfile(props){

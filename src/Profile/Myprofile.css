@@ -13,7 +13,13 @@
     height: 80px;
     background-color: #ddd;
     border-radius: 50%;
+    overflow: hidden;
 }
+
+.img__Myprofile img{
+    width: 100%;
+}
+
 
 .media{
     width: 90%;

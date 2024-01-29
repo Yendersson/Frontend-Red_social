@@ -2,5 +2,8 @@ node_modules
 # Local Netlify folder
 .netlify
 
+#README.md
+README.md
+
 # build
 build

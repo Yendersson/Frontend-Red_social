@@ -2,9 +2,9 @@ import './DeletePostModal.css'
 import axios from 'axios';
 
 // PRODUCTION
-const urlBase = 'https://red-social-by-yender.glitch.me/feed/'
+//const urlBase = 'https://red-social-by-yender.glitch.me/feed/'
 // LOCALHOST
-// const urlBase = 'http://localhost:8080/feed/';
+ const urlBase = 'http://localhost:8080/feed/';
 
 
 function DeletePostModal(props) {
